@@ -1,29 +1,30 @@
-import logo from './logo.svg';
+
 import './App.css';
-import clogo from './Assets/logo.png'
-import cart from './Assets/cart_icon.png'
-import {useState} from 'react'
+import {BrowserRouter,Route,Routes} from 'react-router-dom'
+import Navbar from './components/Navbar'
+import Home from './pages/Home'
+import Cart from './pages/Cart'
+import LoginSignup from './pages/LoginSignup'
+import Product from './pages/Product'
+import ShopCategory from './pages/ShopCategory';
+
 
 function App() {
-  const [currentHr,setHr]=useState('home');
-  return (
-    <div className="navbar">
-       <div className="navlogo">
-        <img src={clogo} />
-        <p>BuyCart</p>
-        </div>
-        <ul className="navmenu">
-        <li onClick={()=>{setHr('home')}}>Home{currentHr==='home'&&<hr/>}</li>
-        <li onClick={()=>{setHr('mens')}}>Mens{currentHr==='mens'&&<hr/>}</li>
-        <li onClick={()=>{setHr('womens')}}>Womens{currentHr==='womens'&&<hr/>}</li>
-        <li onClick={()=>{setHr('kids')}}>Kids{currentHr==='kids'&&<hr/>}</li>
-        </ul> 
-        <div className='navlogincart'>
-        <button>Login</button>
-        <img src={cart} />
-        </div>
-        <div className="CartCount">0</div>
-    </div>
+  return(
+    <BrowserRouter>
+<Navbar />
+<Routes>
+  <Route path="/" element={<Home />}></Route>
+<Route path="/login" element={<LoginSignup />} />
+<Route path="/mens" element={<ShopCategory category="mens" />} />
+<Route path="/womens" element={<ShopCategory category="womens" />} />
+<Route path="/kids" element={<ShopCategory category="kids" />} />
+<Route path="/cart" element={<Cart />} />
+<Route path="/product" element={<Product />}/>
+<Route path=":productId" element={<Product />}/>
+</Routes>
+
+</BrowserRouter>
   );
 }
 
