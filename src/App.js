@@ -10,7 +10,7 @@ import ShopCategory from './pages/ShopCategory';
 import bannerMens from './Assets/banner_mens.png'
 import bannerWomens from './Assets/banner_women.png'
 import bannerKids from './Assets/banner_kids.png'
-
+import Footer from './Assets/Footer';
 function App() {
   return(
     <BrowserRouter>
@@ -22,10 +22,11 @@ function App() {
 <Route path="/womens" element={<ShopCategory banner={bannerWomens} category="women" />} />
 <Route path="/kids" element={<ShopCategory banner={bannerKids} category="kid" />} />
 <Route path="/cart" element={<Cart />} />
-<Route path="/product" element={<Product />}/>
+<Route path="/product" element={<Product />}> 
 <Route path=":productId" element={<Product />}/>
+</Route>
 </Routes>
-
+<Footer />
 </BrowserRouter>
   );
 }

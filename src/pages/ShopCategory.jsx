@@ -10,7 +10,7 @@ const ShopCategory = (props) => {
   const [categoryProducts,setCategoryProducts]=useState([]);
   useEffect(()=>{
   const filteredProducts =all_product.filter((item)=>{ return props.category===item.category});
-  setCategoryProducts(filteredProducts); console.log(filteredProducts);},[props.category,all_product]);
+  setCategoryProducts(filteredProducts);},[props.category,all_product]);
 
   return (
     <div className='ShopCategory'> 
@@ -31,7 +31,7 @@ const ShopCategory = (props) => {
 <div className='explore-more'>
   Explore More
 </div>
-<Footer />
+
     </div>
 
   )
